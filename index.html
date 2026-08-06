@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Investing School – Best Stock Market Education Platform</title>
+  <meta name="description" content="Master the Stock Market with expert-led courses, live webinars and institutional trading strategies. SEBI Registered. Join 20,000+ Students Today at The Investing School." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+
+  <style>
+    /* ===== BLUE & WHITE PREMIUM COLOR PALETTE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #050b14;
+      --bg2:         #091322;
+      --bg-card:     #0d1b30;
+      --blue:        #0099ff;
+      --blue-l:      #38bdf8;
+      --blue-d:      #0284c7;
+      --cyan:        #06b6d4;
+      --gold:        #f59e0b;
+      --white:       #ffffff;
+      --w70:         rgba(255,255,255,0.78);
+      --w40:         rgba(255,255,255,0.45);
+      --w10:         rgba(255,255,255,0.08);
+      --border:      rgba(56,189,248,0.22);
+      --font:        'Outfit', sans-serif;
+      --ease:        all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html  { scroll-behavior: smooth; }
+    body  { font-family: var(--font); background: var(--bg); color: var(--white); overflow-x: hidden; line-height: 1.6; }
+    a     { text-decoration: none; color: inherit; }
+    img   { max-width: 100%; display: block; }
+
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+
+    ::-webkit-scrollbar       { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--blue-d); border-radius: 3px; }
+
+    /* ===== BUTTONS ===== */
+    .btn-green {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 12px 26px;
+      background: linear-gradient(135deg, var(--blue), var(--blue-d));
+      border-radius: 10px; font-size: 15px; font-weight: 700; color: #fff;
+      box-shadow: 0 0 25px rgba(0,153,255,0.4);
+      transition: var(--ease); position: relative; overflow: hidden; border: none; cursor: pointer;
+    }
+    .btn-green::before {
+      content: ''; position: absolute; top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+      transition: left 0.5s;
+    }
+    .btn-green:hover::before { left: 100%; }
+    .btn-green:hover { transform: translateY(-2px); box-shadow: 0 10px 35px rgba(0,153,255,0.6); }
+
+    .btn-outline {
+      padding: 10px 22px;
+      border: 1.5px solid var(--border); border-radius: 10px;
+      font-size: 14px; font-weight: 600; color: var(--white);
+      transition: var(--ease); background: transparent; cursor: pointer;
+    }
+    .btn-outline:hover { border-color: var(--blue-l); color: var(--blue-l); background: rgba(56,189,248,0.08); }
+
+    /* ===== NAVBAR ===== */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(5,11,20,0.88);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: var(--ease);
+    }
+    .navbar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 0; gap: 24px;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .logo img {
+      height: 52px; width: auto; object-fit: contain;
+      filter: drop-shadow(0 0 14px rgba(56,189,248,0.45));
+      transition: var(--ease);
+    }
+    .logo img:hover { transform: scale(1.03); }
+    .logo-text-branding {
+      font-size: 19px; font-weight: 900; letter-spacing: -0.5px;
+      display: flex; flex-direction: column; line-height: 1.1;
+    }
+    .logo-text-branding .main-title { color: #fff; text-transform: uppercase; font-size: 16px; letter-spacing: 1px; }
+    .logo-text-branding .sub-title { color: var(--blue-l); font-size: 11px; letter-spacing: 3px; font-weight: 700; text-transform: uppercase; }
+
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-links a {
+      padding: 8px 16px; border-radius: 8px;
+      font-size: 14px; font-weight: 500; color: var(--w70);
+      transition: var(--ease);
+    }
+    .nav-links a:hover  { color: var(--white); background: var(--w10); }
+    .nav-links a.active { color: var(--blue-l); font-weight: 600; }
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+    .hamburger  { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: var(--ease); }
+
+    .mob-nav {
+      display: none; position: fixed;
+      top: 69px; left: 0; right: 0;
+      background: rgba(5,11,20,0.98); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px; z-index: 999; flex-direction: column; gap: 6px;
+    }
+    .mob-nav.open { display: flex; }
+    .mob-nav a {
+      display: block; padding: 11px 14px; border-radius: 10px;
+      font-size: 15px; font-weight: 500; color: var(--w70); transition: var(--ease);
+    }
+    .mob-nav a:hover { color: var(--white); background: var(--w10); }
+
+    /* ============================================================ */
+    /* ===   DIV 1: HERO / BANNER SECTION                        === */
+    /* ============================================================ */
+    #hero-section {
+      position: relative; min-height: 100vh;
+      display: flex; flex-direction: column; overflow: hidden;
+      background: var(--bg); padding-top: 85px;
+    }
+    .grid-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(rgba(56,189,248,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56,189,248,0.05) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .orb { position: absolute; border-radius: 50%; z-index: 0; pointer-events: none; }
+    .orb-1 { top: -15%; right: -8%; width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(0,153,255,0.15) 0%, transparent 70%);
+      animation: pulse 6s ease-in-out infinite; }
+    .orb-2 { bottom: -20%; left: -10%; width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(56,189,248,0.1) 0%, transparent 70%);
+      animation: pulse 8s ease-in-out infinite reverse; }
+    @keyframes pulse { 0%,100%{transform:scale(1);opacity:1;} 50%{transform:scale(1.1);opacity:0.7;} }
+
+    .hero-body {
+      position: relative; z-index: 1; flex: 1;
+      display: flex; align-items: center; padding: 60px 0 40px;
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center; width: 100%;
+    }
+    .hero-left { display: flex; flex-direction: column; gap: 26px; }
+
+    .sebi-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(56,189,248,0.12); border: 1px solid rgba(56,189,248,0.35);
+      border-radius: 50px; padding: 6px 16px;
+      font-size: 13px; font-weight: 600; color: var(--blue-l); width: fit-content;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .hero-h1 {
+      font-size: clamp(36px, 5vw, 62px); font-weight: 900;
+      line-height: 1.08; letter-spacing: -1.5px;
+      animation: fadeUp 0.7s ease 0.1s both;
+    }
+    .hero-h1 .cycle-wrap {
+      display: inline-block; overflow: hidden; vertical-align: top; height: 1.15em;
+    }
+    #cycle-word {
+      display: block; transition: all 0.4s ease;
+      background: linear-gradient(135deg, var(--white), var(--blue-l));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    .hero-desc {
+      font-size: 17px; color: var(--w70); line-height: 1.75; max-width: 490px;
+      animation: fadeUp 0.7s ease 0.2s both;
+    }
+
+    .hero-checks { display: flex; flex-direction: column; gap: 12px; animation: fadeUp 0.7s ease 0.3s both; }
+    .hck { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 500; color: var(--w70); }
+    .hck-dot {
+      width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
+      background: rgba(56,189,248,0.18); display: flex; align-items: center; justify-content: center;
+      color: var(--blue-l); font-size: 11px;
+    }
+
+    .hero-cta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; animation: fadeUp 0.7s ease 0.4s both; }
+    .btn-ghost {
+      padding: 14px 24px; border: 1.5px solid var(--border);
+      border-radius: 10px; font-size: 15px; font-weight: 600; color: var(--white);
+      display: flex; align-items: center; gap: 8px; transition: var(--ease);
+    }
+    .btn-ghost:hover { border-color: var(--blue-l); color: var(--blue-l); }
+    .play-btn {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: rgba(56,189,248,0.2); display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--blue-l);
+    }
+
+    .hero-stats {
+      display: flex; gap: 32px; padding-top: 8px;
+      border-top: 1px solid var(--border); animation: fadeUp 0.7s ease 0.5s both;
+    }
+    .stat { display: flex; flex-direction: column; gap: 2px; }
+    .stat-n {
+      font-size: 26px; font-weight: 800;
+      background: linear-gradient(135deg, #fff, var(--blue-l));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .stat-l { font-size: 13px; color: var(--w40); font-weight: 500; }
+
+    /* Phone visual & 3D Pedestal */
+    .hero-right { position: relative; display: flex; justify-content: center; align-items: center; animation: fadeRight 0.8s ease 0.2s both; }
+    .phone-showcase { position: relative; width: 100%; display: flex; justify-content: center; align-items: center; }
+
+    .pedestal-img-container {
+      position: relative; width: 100%; max-width: 440px;
+      display: flex; justify-content: center; align-items: center;
+    }
+    .pedestal-img-container img {
+      width: 100%; max-width: 440px; border-radius: 28px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.8), 0 0 50px rgba(0,153,255,0.4);
+      border: 1px solid rgba(56,189,248,0.3);
+      transition: var(--ease);
+      animation: floatPedestal 5s ease-in-out infinite;
+    }
+    @keyframes floatPedestal { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+
+    .float-card {
+      position: absolute;
+      background: rgba(13,27,48,0.95); border: 1px solid rgba(56,189,248,0.35);
+      border-radius: 14px; padding: 12px 16px; backdrop-filter: blur(12px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5); z-index: 10;
+    }
+    .fc-signal { top: -10px; left: -20px; animation: floatC 5s ease-in-out infinite; min-width: 180px; }
+    .fc-achieve { bottom: 20px; right: -20px; animation: floatC 6s ease-in-out infinite 1.5s; display: flex; align-items: center; gap: 10px; min-width: 160px; }
+    @keyframes floatC { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
+
+    .fc-label { font-size: 11px; color: var(--w40); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 4px; }
+    .fc-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+    .fc-stock { font-size: 16px; font-weight: 800; }
+    .fc-price { font-size: 12px; color: var(--w40); margin-top: 2px; }
+    .fc-gain  { font-size: 20px; font-weight: 900; color: var(--blue-l); margin-top: 4px; }
+    .ach-icon { width: 36px; height: 36px; background: linear-gradient(135deg, var(--blue), var(--blue-d)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+    .ach-title { font-size: 13px; font-weight: 700; }
+    .ach-sub   { font-size: 11px; color: var(--w40); }
+
+    .ticker-wrap { overflow: hidden; background: rgba(56,189,248,0.06); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 8px 0; }
+    .ticker-track { display: flex; gap: 48px; animation: tickMove 28s linear infinite; width: max-content; }
+    .ticker-track:hover { animation-play-state: paused; }
+    @keyframes tickMove { from{transform:translateX(0);} to{transform:translateX(-50%);} }
+    .tick { display: flex; align-items: center; gap: 8px; white-space: nowrap; font-size: 13px; font-weight: 600; }
+    .tick .sym  { color: var(--w70); }
+    .tick .prc  { color: var(--white); }
+    .tick .up   { color: var(--blue-l); }
+    .tick .down { color: #ef4444; }
+
+    /* ============================================================ */
+    /* ===   DIV 2: INSTITUTIONAL MOVES SECTION                  === */
+    /* ============================================================ */
+    #features-section {
+      position: relative; background: var(--bg2);
+      overflow: hidden; padding: 100px 0 80px;
+    }
+    .feat-grid-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(rgba(56,189,248,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56,189,248,0.03) 1px, transparent 1px);
+      background-size: 80px 80px;
+    }
+    .feat-glow {
+      position: absolute; top: -30%; left: 50%; transform: translateX(-50%);
+      width: 900px; height: 400px;
+      background: radial-gradient(ellipse, rgba(0,153,255,0.1) 0%, transparent 70%);
+      z-index: 0;
+    }
+
+    .sec-head { text-align: center; margin-bottom: 72px; position: relative; z-index: 1; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(56,189,248,0.12); border: 1px solid rgba(56,189,248,0.3);
+      border-radius: 50px; padding: 6px 18px;
+      font-size: 13px; font-weight: 600; color: var(--blue-l); margin-bottom: 20px; letter-spacing: 0.5px;
+    }
+    .sec-h2 { font-size: clamp(30px, 5vw, 54px); font-weight: 900; line-height: 1.1; letter-spacing: -1px; }
+    .sec-h2 .hl {
+      background: linear-gradient(135deg, var(--white), var(--blue-l));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: block;
+    }
+    .sec-sub { font-size: 17px; color: var(--w70); max-width: 600px; margin: 16px auto 0; line-height: 1.75; }
+
+    .cards-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; position: relative; z-index: 1; margin-bottom: 60px; }
+    .fcard {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 20px; padding: 32px 28px; transition: var(--ease); position: relative; overflow: hidden; cursor: default;
+    }
+    .fcard::before { content:''; position:absolute; top:0;left:0;right:0;height:2px; background:linear-gradient(90deg,transparent,var(--blue-l),transparent); opacity:0; transition:var(--ease); }
+    .fcard::after  { content:''; position:absolute; inset:0; background:radial-gradient(circle at top left,rgba(56,189,248,0.08),transparent 60%); opacity:0; transition:var(--ease); }
+    .fcard:hover { border-color:rgba(56,189,248,0.45); transform:translateY(-6px); box-shadow:0 20px 60px rgba(0,0,0,0.4),0 0 30px rgba(0,153,255,0.15); }
+    .fcard:hover::before,.fcard:hover::after { opacity:1; }
+
+    .fcard.wide { grid-column: span 2; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center; }
+
+    .f-icon { width:56px;height:56px; background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.25); border-radius:14px; display:flex;align-items:center;justify-content:center; font-size:22px;color:var(--blue-l); margin-bottom:20px; transition:var(--ease); }
+    .fcard:hover .f-icon { background:rgba(56,189,248,0.22); box-shadow:0 0 20px rgba(0,153,255,0.35); }
+    .f-title { font-size:18px; font-weight:700; margin-bottom:10px; }
+    .f-desc  { font-size:14px; color:var(--w70); line-height:1.65; }
+    .f-tag   { display:inline-block; margin-top:16px; padding:4px 12px; background:rgba(56,189,248,0.1); border-radius:20px; font-size:12px; font-weight:600; color:var(--blue-l); }
+
+    .bar-visual { background:rgba(56,189,248,0.04); border:1px solid rgba(56,189,248,0.12); border-radius:16px; padding:20px; }
+    .bar-row { display:flex; align-items:center; justify-content:space-between; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.04); }
+    .bar-row:last-child { border-bottom:none; }
+    .bar-name { font-size:13px; font-weight:700; min-width:80px; }
+    .bar-wrap { flex:1; margin:0 12px; }
+    .bar-bg   { height:4px; border-radius:2px; background:rgba(56,189,248,0.15); position:relative; overflow:hidden; }
+    .bar-fill { position:absolute; left:0;top:0;bottom:0; background:linear-gradient(90deg,var(--blue-d),var(--blue-l)); border-radius:2px; animation:bFill 2s ease-out forwards; }
+    @keyframes bFill { from{width:0;} }
+    .bar-pct  { font-size:13px; font-weight:700; color:var(--blue-l); }
+
+    .stats-banner { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:20px; overflow:hidden; position:relative; z-index:1; }
+    .sc { background:var(--bg-card); padding:32px; text-align:center; transition:var(--ease); position:relative; overflow:hidden; }
+    .sc::before { content:''; position:absolute;inset:0; background:radial-gradient(circle at 50% 0%,rgba(56,189,248,0.08),transparent 70%); opacity:0; transition:var(--ease); }
+    .sc:hover::before { opacity:1; }
+    .sc-n { font-size:42px; font-weight:900; line-height:1; background:linear-gradient(135deg,#fff,var(--blue-l)); -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; display:block; margin-bottom:8px; }
+    .sc-l { font-size:14px; color:var(--w70); font-weight:500; }
+    .sc-s { font-size:12px; color:var(--w40); margin-top:4px; }
+
+    /* ============================================================ */
+    /* ===   DIV 3: MEMBERSHIP PLANS SECTION                      === */
+    /* ============================================================ */
+    #membership-section {
+      position: relative; background: var(--bg);
+      overflow: hidden; padding: 110px 0 100px;
+    }
+    .mem-glow-bg {
+      position: absolute; top: 20%; left: 50%; transform: translateX(-50%);
+      width: 800px; height: 500px;
+      background: radial-gradient(ellipse, rgba(0,153,255,0.14) 0%, transparent 70%);
+      pointer-events: none; z-index: 0;
+    }
+
+    .mem-title { font-size: clamp(38px, 6vw, 64px); font-weight: 900; text-align: center; letter-spacing: -1.5px; }
+    .mem-title span {
+      background: linear-gradient(135deg, var(--white), var(--blue-l));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .mem-sub {
+      text-align: center; max-width: 680px; margin: 16px auto 40px;
+      font-size: 17px; color: var(--w70); line-height: 1.75;
+    }
+
+    /* 3D Membership Cards Visual Graphic */
+    .mem-cards-graphic {
+      position: relative; width: 100%; max-width: 480px; height: 260px;
+      margin: 0 auto 60px; display: flex; justify-content: center; align-items: center;
+      position: relative; z-index: 1;
+    }
+    
+    .gold-vip-card {
+      width: 320px; height: 190px; border-radius: 18px;
+      background: linear-gradient(135deg, #0d223d 0%, #061122 100%);
+      border: 1.5px solid rgba(56,189,248,0.4);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.8), 0 0 35px rgba(0,153,255,0.3);
+      padding: 20px; position: absolute; display: flex; flex-direction: column; justify-content: space-between;
+      transition: var(--ease);
+    }
+    
+    .gold-vip-card.card-back {
+      transform: translateY(-25px) translateX(-20px) rotate(-6deg) scale(0.92);
+      opacity: 0.7; z-index: 1; border-color: rgba(56,189,248,0.3);
+    }
+
+    .gold-vip-card.card-front {
+      transform: translateY(10px) rotate(4deg) scale(1);
+      z-index: 2; animation: floatCard 5s ease-in-out infinite;
+    }
+
+    .card-chip {
+      width: 42px; height: 30px;
+      background: linear-gradient(135deg, #38bdf8, #0284c7);
+      border-radius: 6px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;
+    }
+    .card-chip::after { content: '📡'; font-size: 14px; opacity: 0.85; }
+    
+    .card-brand { display: flex; align-items: center; justify-content: space-between; }
+    .card-name-text { font-size: 13px; font-weight: 900; letter-spacing: 2px; color: var(--blue-l); text-transform: uppercase; }
+    .card-logo-sw { font-size: 16px; font-weight: 900; color: #fff; text-transform: uppercase; }
+    .card-candlesticks-art {
+      font-size: 32px; opacity: 0.25; color: var(--blue-l); position: absolute; right: 20px; bottom: 20px;
+    }
+
+    /* Pricing Cards Grid */
+    .plans-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;
+      position: relative; z-index: 2; align-items: stretch;
+    }
+
+    .plan-card {
+      background: var(--bg-card); border: 1.5px solid var(--border);
+      border-radius: 24px; padding: 36px 30px;
+      display: flex; flex-direction: column; justify-content: space-between;
+      transition: var(--ease); position: relative; overflow: hidden;
+    }
+    .plan-card:hover {
+      border-color: rgba(56,189,248,0.5); transform: translateY(-8px);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.5), 0 0 35px rgba(0,153,255,0.2);
+    }
+
+    .plan-card.popular {
+      background: linear-gradient(180deg, #0f2746 0%, #08172c 100%);
+      border-color: var(--blue-l);
+      box-shadow: 0 0 45px rgba(0,153,255,0.3);
+      transform: scale(1.03);
+    }
+    .plan-card.popular:hover {
+      transform: scale(1.03) translateY(-8px);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 55px rgba(0,153,255,0.4);
+    }
+
+    .pop-badge {
+      position: absolute; top: 16px; right: 16px;
+      background: linear-gradient(135deg, var(--blue), var(--blue-d));
+      color: #fff; font-size: 11px; font-weight: 800; text-transform: uppercase;
+      padding: 4px 14px; border-radius: 50px; letter-spacing: 0.5px;
+    }
+
+    .plan-name { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+    .plan-tag  { font-size: 13px; color: var(--w40); margin-bottom: 20px; }
+
+    .plan-price-box { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .p-amount { font-size: 42px; font-weight: 900; color: var(--white); }
+    .p-amount span { font-size: 15px; color: var(--w40); font-weight: 500; }
+    .p-savings { font-size: 12px; color: var(--blue-l); font-weight: 700; margin-top: 4px; }
+
+    .plan-features-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; list-style: none; }
+    .pf-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--w70); }
+    .pf-item i { color: var(--blue-l); font-size: 13px; margin-top: 3px; flex-shrink: 0; }
+    .pf-item.disabled { color: var(--w40); }
+    .pf-item.disabled i { color: var(--w40); }
+
+    /* ============================================================ */
+    /* ===   DIV 4: BLOG SECTION                                 === */
+    /* ============================================================ */
+    #blog-section {
+      position: relative; background: var(--bg2);
+      padding: 100px 0; border-top: 1px solid var(--border);
+    }
+    .blog-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+      margin-top: 50px; position: relative; z-index: 1;
+    }
+    .blog-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 20px; overflow: hidden; transition: var(--ease);
+      display: flex; flex-direction: column;
+    }
+    .blog-card:hover {
+      border-color: var(--blue-l); transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(0,153,255,0.2);
+    }
+    .blog-img-wrap {
+      height: 180px; width: 100%; background: linear-gradient(135deg, #0d2747, #061427);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 48px; border-bottom: 1px solid var(--border); position: relative;
+    }
+    .blog-tag-badge {
+      position: absolute; bottom: 12px; left: 14px;
+      background: rgba(0,153,255,0.25); border: 1px solid rgba(56,189,248,0.4);
+      color: var(--blue-l); font-size: 11px; font-weight: 700;
+      padding: 4px 12px; border-radius: 20px;
+    }
+    .blog-body { padding: 24px; display: flex; flex-direction: column; flex: 1; gap: 12px; }
+    .blog-meta { font-size: 12px; color: var(--w40); display: flex; gap: 12px; }
+    .blog-title { font-size: 18px; font-weight: 800; color: #fff; line-height: 1.35; }
+    .blog-excerpt { font-size: 14px; color: var(--w70); line-height: 1.6; }
+    .blog-link { font-size: 14px; font-weight: 700; color: var(--blue-l); margin-top: auto; display: flex; align-items: center; gap: 6px; transition: var(--ease); }
+    .blog-link:hover { color: #fff; transform: translateX(4px); }
+
+    /* ============================================================ */
+    /* ===   INTERACTIVE LOGIN / SIGNUP MODAL POPUP             === */
+    /* ============================================================ */
+    .auth-modal-overlay {
+      position: fixed; inset: 0; z-index: 10000;
+      background: rgba(4, 9, 18, 0.85);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px; opacity: 0; pointer-events: none;
+      transition: all 0.35s ease;
+    }
+    .auth-modal-overlay.active {
+      opacity: 1; pointer-events: auto;
+    }
+
+    .auth-modal-card {
+      width: 100%; max-width: 440px;
+      background: linear-gradient(180deg, #0d1e36 0%, #081324 100%);
+      border: 1.5px solid rgba(56,189,248,0.35);
+      box-shadow: 0 30px 90px rgba(0,0,0,0.8), 0 0 50px rgba(0,153,255,0.25);
+      border-radius: 24px; padding: 32px 28px;
+      position: relative; transform: scale(0.9) translateY(20px);
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .auth-modal-overlay.active .auth-modal-card {
+      transform: scale(1) translateY(0);
+    }
+
+    .auth-modal-close {
+      position: absolute; top: 20px; right: 20px;
+      width: 32px; height: 32px; border-radius: 50%;
+      background: rgba(255,255,255,0.08); border: none;
+      color: #aaa; font-size: 16px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: var(--ease);
+    }
+    .auth-modal-close:hover { color: #fff; background: rgba(255,255,255,0.2); }
+
+    .auth-modal-header { text-align: center; margin-bottom: 24px; }
+    .auth-modal-header img { height: 42px; margin: 0 auto 12px; }
+    .auth-modal-title { font-size: 22px; font-weight: 800; color: #fff; }
+    .auth-modal-sub { font-size: 13px; color: var(--w40); margin-top: 4px; }
+
+    /* Modal Tabs */
+    .auth-tabs {
+      display: flex; background: rgba(255,255,255,0.06);
+      border-radius: 12px; padding: 4px; margin-bottom: 24px;
+    }
+    .auth-tab-btn {
+      flex: 1; padding: 10px; border: none; background: transparent;
+      color: var(--w70); font-weight: 700; font-size: 14px;
+      border-radius: 9px; cursor: pointer; transition: var(--ease);
+    }
+    .auth-tab-btn.active {
+      background: linear-gradient(135deg, var(--blue), var(--blue-d));
+      color: #fff; box-shadow: 0 4px 15px rgba(0,153,255,0.3);
+    }
+
+    /* Modal Forms */
+    .auth-form { display: none; flex-direction: column; gap: 16px; }
+    .auth-form.active { display: flex; }
+
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label { font-size: 12px; font-weight: 600; color: var(--w70); text-transform: uppercase; letter-spacing: 0.5px; }
+    .form-control {
+      width: 100%; padding: 12px 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(56,189,248,0.2);
+      border-radius: 10px; color: #fff; font-size: 14px;
+      font-family: inherit; transition: var(--ease); outline: none;
+    }
+    .form-control:focus {
+      border-color: var(--blue-l);
+      box-shadow: 0 0 15px rgba(56,189,248,0.25);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .form-options { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--w40); }
+    .form-options label { cursor: pointer; display: flex; align-items: center; gap: 6px; }
+    .form-options a { color: var(--blue-l); font-weight: 600; }
+    .form-options a:hover { text-decoration: underline; }
+
+    .btn-submit-auth {
+      width: 100%; padding: 14px; margin-top: 8px;
+      background: linear-gradient(135deg, var(--blue), var(--blue-d));
+      border: none; border-radius: 10px; color: #fff;
+      font-size: 15px; font-weight: 800; cursor: pointer;
+      box-shadow: 0 8px 25px rgba(0,153,255,0.4); transition: var(--ease);
+    }
+    .btn-submit-auth:hover { transform: translateY(-2px); box-shadow: 0 12px 35px rgba(0,153,255,0.6); }
+
+    /* Toast Notification */
+    #auth-toast {
+      position: fixed; top: 20px; right: 20px; z-index: 10001;
+      background: linear-gradient(135deg, #0284c7, #0099ff);
+      color: #fff; padding: 14px 22px; border-radius: 12px;
+      font-size: 14px; font-weight: 700; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      display: flex; align-items: center; gap: 10px;
+      transform: translateY(-80px); opacity: 0; transition: all 0.4s ease;
+    }
+    #auth-toast.active { transform: translateY(0); opacity: 1; }
+
+    /* ============================================================ */
+    /* ===   SOCIAL PROOF ENROLLMENT POPUP (BOTTOM LEFT)          === */
+    /* ============================================================ */
+    #social-proof-popup {
+      position: fixed; bottom: 30px; left: 30px; z-index: 9999;
+      width: 380px; max-width: calc(100vw - 40px);
+      background: #ffffff; color: #111;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+      border-radius: 16px; padding: 16px 18px;
+      display: flex; flex-direction: column; gap: 8px;
+      font-family: Arial, sans-serif;
+      animation: popupSlideIn 0.5s ease-out forwards;
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+    @keyframes popupSlideIn {
+      from { transform: translateY(100px); opacity: 0; }
+      to   { transform: translateY(0); opacity: 1; }
+    }
+
+    .sp-header { display: flex; justify-content: space-between; align-items: center; }
+    .sp-close { background: none; border: none; font-size: 16px; color: #aaa; cursor: pointer; font-weight: bold; line-height: 1; }
+    .sp-close:hover { color: #000; }
+    .sp-body { display: flex; align-items: center; gap: 12px; }
+    .sp-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: #0088ff; color: #fff; font-weight: 800; font-size: 18px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .sp-text { display: flex; flex-direction: column; }
+    .sp-user { font-size: 13px; color: #666; font-weight: 400; }
+    .sp-plan { font-size: 15px; font-weight: 800; color: #111; margin-top: 1px; }
+    .sp-time { font-size: 11px; color: #888; margin-top: 2px; }
+    
+    .sp-progress-bar { width: 100%; height: 4px; background: #e5e7eb; border-radius: 2px; overflow: hidden; margin-top: 4px; }
+    .sp-progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #0099ff, #38bdf8); transition: width 6s linear; }
+
+    /* ============================================================ */
+    /* ===   FLOATING WHATSAPP CHAT BUTTON (BOTTOM RIGHT)        === */
+    /* ============================================================ */
+    #whatsapp-wrapper {
+      position: fixed; bottom: 30px; right: 30px; z-index: 9999;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .wa-chat-pill {
+      background: #ffffff; color: #111; font-size: 13px; font-weight: 700;
+      padding: 8px 16px; border-radius: 50px; box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      display: flex; align-items: center; gap: 8px; animation: floatC 4s ease-in-out infinite;
+    }
+    .wa-close-small { font-size: 12px; color: #888; cursor: pointer; margin-left: 4px; }
+    .wa-btn {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: #25d366; color: #fff; font-size: 28px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 10px 30px rgba(37,211,102,0.5);
+      transition: var(--ease); animation: waPulse 2s infinite;
+    }
+    .wa-btn:hover { transform: scale(1.1); box-shadow: 0 14px 40px rgba(37,211,102,0.7); }
+    @keyframes waPulse {
+      0%,100% { transform: scale(1); }
+      50%     { transform: scale(1.06); }
+    }
+
+    /* FOOTER */
+    footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 40px 0; text-align: center; }
+    footer p { font-size: 14px; color: var(--w40); }
+    footer a { color: var(--blue-l); transition: var(--ease); }
+    footer a:hover { color: var(--white); }
+
+    /* ===== REVEAL ANIMATIONS ===== */
+    @keyframes fadeUp   { from{opacity:0;transform:translateY(30px);} to{opacity:1;transform:translateY(0);} }
+    @keyframes fadeRight{ from{opacity:0;transform:translateX(40px);} to{opacity:1;transform:translateX(0);} }
+
+    .reveal { opacity:0; transform:translateY(40px); transition:opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+    .d1{transition-delay:0.1s;} .d2{transition-delay:0.2s;} .d3{transition-delay:0.3s;} .d4{transition-delay:0.4s;}
+
+    /* ===== RESPONSIVE ===== */
+    @media(max-width:1024px){
+      .nav-links,.nav-actions{display:none;}
+      .hamburger{display:flex;}
+      .hero-grid{grid-template-columns:1fr;} .hero-right{display:none;}
+      .cards-grid{grid-template-columns:repeat(2,1fr);}
+      .fcard.wide{grid-column:span 2;}
+      .plans-grid, .blog-grid{grid-template-columns:1fr; max-width:450px; margin:0 auto;}
+      .plan-card.popular{transform:none;}
+      .plan-card.popular:hover{transform:translateY(-8px);}
+    }
+    @media(max-width:768px){
+      .hero-h1{font-size:36px;}
+      .cards-grid{grid-template-columns:1fr;}
+      .fcard.wide{grid-column:span 1;grid-template-columns:1fr;}
+      .stats-banner{grid-template-columns:1fr 1fr;}
+      .hero-stats{gap:20px;}
+      .sc-n{font-size:32px;} .sc{padding:22px 16px;}
+      #social-proof-popup{left:20px; bottom:90px;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header id="main-header">
+  <div class="container">
+    <nav class="navbar">
+      <a href="#" class="logo" id="logo-link">
+        <img src="images/logo.png" alt="The Investing School Logo" />
+        <div class="logo-text-branding">
+          <span class="main-title">The Investing</span>
+          <span class="sub-title">School</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#hero-section" class="active" id="nav-home">Home</a></li>
+        <li><a href="#features-section" id="nav-courses">Courses</a></li>
+        <li><a href="#membership-section" id="nav-membership">Membership</a></li>
+        <li><a href="#features-section" id="nav-mentorship">Mentorship</a></li>
+        <li><a href="#membership-section" id="nav-about">About Us</a></li>
+        <li><a href="#blog-section" id="nav-blog">Blog</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="btn-outline open-auth-btn" data-tab="login" id="nav-login">Login</button>
+        <button class="btn-green open-auth-btn" data-tab="signup" id="nav-signup">Sign Up Free</button>
+      </div>
+
+      <div class="hamburger" id="hamburger-btn">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mob-nav" id="mob-nav">
+  <a href="#hero-section" id="mob-home">Home</a>
+  <a href="#features-section" id="mob-courses">Courses</a>
+  <a href="#membership-section" id="mob-membership">Membership</a>
+  <a href="#features-section" id="mob-mentorship">Mentorship</a>
+  <a href="#membership-section" id="mob-about">About Us</a>
+  <a href="#blog-section" id="mob-blog">Blog</a>
+  <a href="#" class="open-auth-btn" data-tab="login" style="color:var(--blue-l);font-weight:700;">Login / Sign Up →</a>
+</div>
+
+<!-- ============================================================ -->
+<!-- ================  DIV 1 : HERO SECTION  =================== -->
+<!-- ============================================================ -->
+<section id="hero-section">
+  <div class="grid-bg"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <div class="hero-body">
+    <div class="container">
+      <div class="hero-grid">
+
+        <!-- LEFT COPY -->
+        <div class="hero-left">
+          <div class="sebi-badge">
+            <i class="fa-solid fa-shield-halved"></i>
+            SEBI Registered – INH000013925
+          </div>
+
+          <h1 class="hero-h1">
+            Become A Super
+            <div class="cycle-wrap">
+              <span id="cycle-word">Trader</span>
+            </div>
+          </h1>
+
+          <p class="hero-desc">
+            Unlock the secrets of the top 1% professional institutional traders at <strong>The Investing School</strong>.
+            Get unlimited access to powerful trading ideas, in-depth stock market
+            education and world-class technology ecosystem designed to beat the market.
+          </p>
+
+          <div class="hero-checks">
+            <div class="hck"><div class="hck-dot"><i class="fa-solid fa-check"></i></div>Trade Like Professional Institutional Traders</div>
+            <div class="hck"><div class="hck-dot"><i class="fa-solid fa-check"></i></div>Powerful Trade Ideas &amp; Live Market Signals</div>
+            <div class="hck"><div class="hck-dot"><i class="fa-solid fa-check"></i></div>10+ Proven Trading Strategies &amp; Masterclasses</div>
+          </div>
+
+          <div class="hero-cta">
+            <button class="btn-hero btn-green open-auth-btn" data-tab="signup" id="btn-get-started">
+              <i class="fa-solid fa-bolt"></i> Get Started Free
+            </button>
+            <a href="#features-section" class="btn-ghost" id="btn-watch-demo">
+              <div class="play-btn">▶</div> Watch Demo
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-n">20,000+</span>
+              <span class="stat-l">Students Trained</span>
+            </div>
+            <div class="stat">
+              <span class="stat-n">150+</span>
+              <span class="stat-l">Course Modules</span>
+            </div>
+            <div class="stat">
+              <span class="stat-n">4.9 ⭐</span>
+              <span class="stat-l">Avg Rating</span>
+            </div>
+            <div class="stat">
+              <span class="stat-n">7 Yrs</span>
+              <span class="stat-l">Experience</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT PHONE VISUAL WITH DUAL PEDESTAL GRAPHIC -->
+        <div class="hero-right">
+          <div class="phone-showcase">
+
+            <!-- Float: Signal card -->
+            <div class="float-card fc-signal">
+              <div class="fc-header">
+                <span class="fc-label">Live Signal</span>
+                <span class="live-dot">LIVE</span>
+              </div>
+              <div class="fc-stock">RELIANCE</div>
+              <div class="fc-price">Entry ₹2,764 · Target ₹3,100</div>
+              <div class="fc-gain">+34.55% 📈</div>
+            </div>
+
+            <!-- Dual Phone Pedestal 3D Graphic -->
+            <div class="pedestal-img-container">
+              <img src="images/dual_phone_pedestal.jpg" alt="The Investing School Trading App Pedestal" />
+            </div>
+
+            <!-- Float: Achievement -->
+            <div class="float-card fc-achieve">
+              <div class="ach-icon">🎓</div>
+              <div>
+                <div class="ach-title">20,000+ Students</div>
+                <div class="ach-sub">Enrolled at TIS</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Ticker tape -->
+  <div class="ticker-wrap">
+    <div class="ticker-track" id="ticker">
+      <div class="tick"><span class="sym">NIFTY50</span><span class="prc">24,350</span><span class="up">▲ +1.23%</span></div>
+      <div class="tick"><span class="sym">SENSEX</span><span class="prc">80,218</span><span class="up">▲ +0.98%</span></div>
+      <div class="tick"><span class="sym">RELIANCE</span><span class="prc">₹2,764</span><span class="up">▲ +2.80%</span></div>
+      <div class="tick"><span class="sym">TCS</span><span class="prc">₹4,218</span><span class="up">▲ +3.10%</span></div>
+      <div class="tick"><span class="sym">HDFC BANK</span><span class="prc">₹1,890</span><span class="down">▼ -0.45%</span></div>
+      <div class="tick"><span class="sym">INFY</span><span class="prc">₹1,930</span><span class="up">▲ +1.60%</span></div>
+      <div class="tick"><span class="sym">BHARTI AIRTEL</span><span class="prc">₹1,420</span><span class="up">▲ +0.75%</span></div>
+      <div class="tick"><span class="sym">ZOMATO</span><span class="prc">₹252</span><span class="up">▲ +4.20%</span></div>
+      <div class="tick"><span class="sym">ADANI PORTS</span><span class="prc">₹1,380</span><span class="down">▼ -0.90%</span></div>
+      <div class="tick"><span class="sym">DLF</span><span class="prc">₹810</span><span class="up">▲ +2.35%</span></div>
+      <!-- duplicate -->
+      <div class="tick"><span class="sym">NIFTY50</span><span class="prc">24,350</span><span class="up">▲ +1.23%</span></div>
+      <div class="tick"><span class="sym">SENSEX</span><span class="prc">80,218</span><span class="up">▲ +0.98%</span></div>
+      <div class="tick"><span class="sym">RELIANCE</span><span class="prc">₹2,764</span><span class="up">▲ +2.80%</span></div>
+      <div class="tick"><span class="sym">TCS</span><span class="prc">₹4,218</span><span class="up">▲ +3.10%</span></div>
+      <div class="tick"><span class="sym">HDFC BANK</span><span class="prc">₹1,890</span><span class="down">▼ -0.45%</span></div>
+      <div class="tick"><span class="sym">INFY</span><span class="prc">₹1,930</span><span class="up">▲ +1.60%</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ===========  DIV 2 : FEATURES / CATCH MOVES  ============== -->
+<!-- ============================================================ -->
+<section id="features-section">
+  <div class="feat-grid-bg"></div>
+  <div class="feat-glow"></div>
+
+  <div class="container">
+
+    <!-- Header -->
+    <div class="sec-head reveal" id="sec-head">
+      <div class="eyebrow"><i class="fa-solid fa-chart-line"></i> Institutional Trading Ecosystem</div>
+      <h2 class="sec-h2">
+        Catch Institutional
+        <span class="hl">Moves Everyday</span>
+      </h2>
+      <p class="sec-sub">
+        Experience the power of order-flow trading with world-class tools &amp; investing
+        ecosystem designed to consistently beat the market.
+      </p>
+    </div>
+
+    <!-- Cards -->
+    <div class="cards-grid">
+
+      <!-- Card 1: Wide – Live Signals -->
+      <div class="fcard wide reveal d1" id="fcard-signals">
+        <div>
+          <div class="f-icon"><i class="fa-solid fa-satellite-dish"></i></div>
+          <div class="f-title">Live Market Signals</div>
+          <div class="f-desc">Real-time institutional buy/sell signals with precise entry, stop-loss &amp; target levels. Never miss a big institutional market move.</div>
+          <span class="f-tag">🟢 Live Now</span>
+        </div>
+        <div class="bar-visual">
+          <div class="bar-row">
+            <span class="bar-name">RELIANCE</span>
+            <div class="bar-wrap"><div class="bar-bg"><div class="bar-fill" style="width:85%"></div></div></div>
+            <span class="bar-pct">+34.5%</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-name">TCS</span>
+            <div class="bar-wrap"><div class="bar-bg"><div class="bar-fill" style="width:72%;animation-delay:0.2s"></div></div></div>
+            <span class="bar-pct">+28.1%</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-name">ZOMATO</span>
+            <div class="bar-wrap"><div class="bar-bg"><div class="bar-fill" style="width:91%;animation-delay:0.4s"></div></div></div>
+            <span class="bar-pct">+41.2%</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-name">NIFTY 50</span>
+            <div class="bar-wrap"><div class="bar-bg"><div class="bar-fill" style="width:60%;animation-delay:0.6s"></div></div></div>
+            <span class="bar-pct">+22.8%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="fcard reveal d2" id="fcard-mentors">
+        <div class="f-icon"><i class="fa-solid fa-user-graduate"></i></div>
+        <div class="f-title">Expert Mentors</div>
+        <div class="f-desc">Learn from SEBI-registered analysts &amp; institutional traders with 10+ years of real market experience. One-on-one mentorship available.</div>
+        <span class="f-tag">SEBI Certified</span>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="fcard reveal d1" id="fcard-courses">
+        <div class="f-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+        <div class="f-title">Premium Courses</div>
+        <div class="f-desc">From Basics of Stock Market to Technical Analysis Masterclass &amp; Options Trading – structured curriculum from beginner to expert level.</div>
+        <span class="f-tag">150+ Modules</span>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="fcard reveal d2" id="fcard-strategies">
+        <div class="f-icon"><i class="fa-solid fa-chess"></i></div>
+        <div class="f-title">10+ Trading Strategies</div>
+        <div class="f-desc">Master price action, order flow, RSI divergence, institutional block trades, options chain analysis – all battle-tested strategies that work.</div>
+        <span class="f-tag">Proven Systems</span>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="fcard reveal d3" id="fcard-webinars">
+        <div class="f-icon"><i class="fa-solid fa-video"></i></div>
+        <div class="f-title">Live Webinars</div>
+        <div class="f-desc">Weekly live trading sessions where experts trade real markets and explain their thought process in real-time. Ask questions live!</div>
+        <span class="f-tag">Every Week</span>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="fcard reveal d4" id="fcard-community">
+        <div class="f-icon"><i class="fa-brands fa-telegram"></i></div>
+        <div class="f-title">VIP Community</div>
+        <div class="f-desc">Join 20,000+ serious traders in our exclusive WhatsApp &amp; Telegram community. Daily market updates, tips and peer support 24/7.</div>
+        <span class="f-tag">20K+ Members</span>
+      </div>
+
+    </div>
+
+    <!-- Stats Banner -->
+    <div class="stats-banner reveal" id="stats-banner">
+      <div class="sc"><span class="sc-n" data-target="20000">0</span><div class="sc-l">Happy Students</div><div class="sc-s">Across India</div></div>
+      <div class="sc"><span class="sc-n" data-target="150">0</span><div class="sc-l">Course Modules</div><div class="sc-s">Beginner to Advanced</div></div>
+      <div class="sc"><span class="sc-n" data-target="98">0</span><div class="sc-l">Success Rate</div><div class="sc-s">Student Satisfaction</div></div>
+      <div class="sc"><span class="sc-n" data-target="7">0</span><div class="sc-l">Years Experience</div><div class="sc-s">In Markets</div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- =============  DIV 3 : MEMBERSHIP PLANS SECTION  =========== -->
+<!-- ============================================================ -->
+<section id="membership-section">
+  <div class="mem-glow-bg"></div>
+
+  <div class="container" style="position:relative; z-index:1;">
+    
+    <!-- Title -->
+    <h2 class="mem-title reveal">
+      Membership <span>Plans</span>
+    </h2>
+    <p class="mem-sub reveal d1">
+      We empower a new generation of traders and investors with world class technology,
+      institution grade education and professional advisory services.
+    </p>
+
+    <!-- 3D Membership Cards Visual Graphic -->
+    <div class="mem-cards-graphic reveal d2">
+      <!-- Back Card -->
+      <div class="gold-vip-card card-back">
+        <div class="card-brand">
+          <div class="card-chip"></div>
+          <span class="card-logo-sw">TIS</span>
+        </div>
+        <div class="card-name-text">TIS Platinum VIP</div>
+      </div>
+      
+      <!-- Front Card -->
+      <div class="gold-vip-card card-front">
+        <div class="card-brand">
+          <div class="card-chip"></div>
+          <span class="card-logo-sw">INVESTING SCHOOL</span>
+        </div>
+        <div class="card-candlesticks-art">📊</div>
+        <div>
+          <div style="font-size:10px; color:#aaa; letter-spacing:1px; margin-bottom:2px;">VIP MEMBER CARD</div>
+          <div class="card-name-text">Super Trader VIP</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pricing Cards Grid -->
+    <div class="plans-grid">
+      
+      <!-- Plan 1: Basic -->
+      <div class="plan-card reveal d1">
+        <div>
+          <div class="plan-name">Starter Plan</div>
+          <div class="plan-tag">Perfect for beginners entering the stock market</div>
+          <div class="plan-price-box">
+            <div class="p-amount">₹1,499 <span>/ lifetime</span></div>
+            <div class="p-savings">Save 70% Today</div>
+          </div>
+          <ul class="plan-features-list">
+            <li class="pf-item"><i class="fa-solid fa-circle-check"></i> Basics of Stock Market Course</li>
+            <li class="pf-item"><i class="fa-solid fa-circle-check"></i> Technical Analysis Foundation</li>
+            <li class="pf-item"><i class="fa-solid fa-circle-check"></i> Community Group Access</li>
+            <li class="pf-item"><i class="fa-solid fa-circle-check"></i> Weekly Market Overview</li>
+            <li class="pf-item disabled"><i class="fa-solid fa-circle-xmark"></i> Live Market Signals</li>
+            <li class="pf-item disabled"><i class="fa-solid fa-circle-xmark"></i> 1-on-1 Mentor Support</li>
+          </ul>
+        </div>
+        <button class="btn-outline open-auth-btn" data-tab="signup" style="width:100%;">Enroll In Starter</button>
+      </div>
+
+      <!-- Plan 2: VIP (Popular) -->
+      <div class="plan-card popular reveal d2">
+        <div class="pop-badge">⭐ Most Popular</div>
+        <div>
+          <div class="plan-name" style="color:var(--blue-l);">Super Trader VIP</div>
+          <div class="plan-tag">Full access to institutional signals &amp; courses</div>
+          <div class="plan-price-box">
+            <div class="p-amount">₹3,999 <span>/ year</span></div>
+            <div class="p-savings">🔥 Limited Time Offer (Reg. ₹12,999)</div>
+          </div>
+          <ul class="plan-features-list">
+            <li class="pf-item"><i class="fa-solid fa-circle-check"></i> All 6 Premium Courses Access</li>
+            <li class="pf-item"><i class="fa-solid fa-circle-check"></i> <strong>Live Market Signals &amp; Trade Ideas</strong></li>
+            <li class="pf-item"><i class="fa-solid fa-circle-check"></i> Options &amp; Price Action Masterclass</li>
+            <li class="pf-item"><i class="fa-solid fa-circle-check"></i> Weekly Live Trading Webinars</li>
+            <li class="pf-item"><i class="fa-solid fa-circle-check"></i> VIP Telegram &amp; WhatsApp Group</li>
+            <li class="pf-item"><i class="fa-solid fa-circle-check"></i> Certificate of Completion</li>
+          </ul>
+        </div>
+        <button class="btn-green open-auth-btn" data-tab="signup" style="width:100%;">Enroll In Super Trader VIP</button>
+      </div>
+
+      <!-- Plan 3: Mentorship -->
+      <div class="plan-card reveal d3">
+        <div>
+          <div class="plan-name">Institutional Mentorship</div>
+          <div class="plan-tag">Direct 1-on-1 guidance from SEBI experts</div>
+          <div class="plan-price-box">
+            <div class="p-amount">₹9,999 <span>/ 6 months</span></div>
+            <div class="p-savings">Personalized Coaching</div>
+          </div>
+          <ul class="plan-features-list">
+            <li class="pf-item"><i class="fa-solid fa-circle-check"></i> Everything in Super Trader VIP</li>
+            <li class="pf-item"><i class="fa-solid fa-circle-check"></i> <strong>1-on-1 Weekly Mentorship Sessions</strong></li>
+            <li class="pf-item"><i class="fa-solid fa-circle-check"></i> Live Portfolio Review &amp; Risk Check</li>
+            <li class="pf-item"><i class="fa-solid fa-circle-check"></i> Institutional Order Flow Setup</li>
+            <li class="pf-item"><i class="fa-solid fa-circle-check"></i> Priority Direct Phone/Chat Support</li>
+          </ul>
+        </div>
+        <button class="btn-outline open-auth-btn" data-tab="signup" style="width:100%;">Apply For Mentorship</button>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- =============  DIV 4 : BLOG SECTION                           === -->
+<!-- ============================================================ -->
+<section id="blog-section">
+  <div class="container">
+    
+    <div class="sec-head reveal">
+      <div class="eyebrow"><i class="fa-solid fa-newspaper"></i> Latest Market Insights</div>
+      <h2 class="sec-h2">
+        The Investing School <span class="hl">Blog</span>
+      </h2>
+      <p class="sec-sub">
+        Explore expert trading articles, market analysis breakdown, and risk management guides written by SEBI registered mentors.
+      </p>
+    </div>
+
+    <div class="blog-grid">
+      
+      <!-- Blog 1 -->
+      <div class="blog-card reveal d1">
+        <div class="blog-img-wrap">
+          📈
+          <span class="blog-tag-badge">Trading Strategy</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta"><span>August 2026</span> • <span>5 min read</span></div>
+          <h3 class="blog-title">Understanding Institutional Order Flow: How Big Players Move Markets</h3>
+          <p class="blog-excerpt">Discover how institutional investors hide large buy/sell orders in liquidity pools and how you can trade alongside smart money.</p>
+          <a href="#" class="blog-link" onclick="alert('Full blog article page opening soon!')">Read Full Article →</a>
+        </div>
+      </div>
+
+      <!-- Blog 2 -->
+      <div class="blog-card reveal d2">
+        <div class="blog-img-wrap">
+          📊
+          <span class="blog-tag-badge">Technical Analysis</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta"><span>August 2026</span> • <span>7 min read</span></div>
+          <h3 class="blog-title">Price Action vs Indicators: Which Trading Style Works Best in 2026?</h3>
+          <p class="blog-excerpt">An in-depth comparison between indicator-based setups and clean price action reading on NIFTY &amp; Stock charts.</p>
+          <a href="#" class="blog-link" onclick="alert('Full blog article page opening soon!')">Read Full Article →</a>
+        </div>
+      </div>
+
+      <!-- Blog 3 -->
+      <div class="blog-card reveal d3">
+        <div class="blog-img-wrap">
+          🛡️
+          <span class="blog-tag-badge">Risk Management</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta"><span>August 2026</span> • <span>4 min read</span></div>
+          <h3 class="blog-title">Top 5 Risk Management Rules Every Beginner Trader Must Follow</h3>
+          <p class="blog-excerpt">Capital protection is key to long-term success. Learn the 1% risk rule, dynamic stop losses, and position sizing guidelines.</p>
+          <a href="#" class="blog-link" onclick="alert('Full blog article page opening soon!')">Read Full Article →</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- =============  WORKABLE LOGIN / SIGNUP MODAL POPUP  ======== -->
+<!-- ============================================================ -->
+<div class="auth-modal-overlay" id="auth-modal">
+  <div class="auth-modal-card">
+    <button class="auth-modal-close" id="auth-modal-close-btn">&times;</button>
+    
+    <div class="auth-modal-header">
+      <img src="images/logo.png" alt="The Investing School Logo" />
+      <div class="auth-modal-title">Welcome to TIS</div>
+      <div class="auth-modal-sub">The Investing School Portal</div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="auth-tabs">
+      <button class="auth-tab-btn active" id="tab-btn-login">Login</button>
+      <button class="auth-tab-btn" id="tab-btn-signup">Sign Up</button>
+    </div>
+
+    <!-- Login Form -->
+    <form class="auth-form active" id="form-login">
+      <div class="form-group">
+        <label>Email Address / Username</label>
+        <input type="email" class="form-control" placeholder="student@example.com" required />
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" placeholder="••••••••" required />
+      </div>
+      <div class="form-options">
+        <label><input type="checkbox" checked /> Remember Me</label>
+        <a href="#" onclick="alert('Password reset link will be sent to your registered email.')">Forgot Password?</a>
+      </div>
+      <button type="submit" class="btn-submit-auth">Login to Account →</button>
+    </form>
+
+    <!-- Sign Up Form -->
+    <form class="auth-form" id="form-signup">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" class="form-control" placeholder="Rahul Sharma" required />
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" class="form-control" placeholder="rahul@example.com" required />
+      </div>
+      <div class="form-group">
+        <label>Mobile Number (WhatsApp)</label>
+        <input type="tel" class="form-control" placeholder="+91 98765 43210" required />
+      </div>
+      <div class="form-group">
+        <label>Select Plan Interest</label>
+        <select class="form-control" style="background:#0d1b30;">
+          <option>Super Trader VIP (₹3,999/yr)</option>
+          <option>Starter Plan (₹1,499/lifetime)</option>
+          <option>Institutional Mentorship (₹9,999/6mo)</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-submit-auth">Create Student Account →</button>
+    </form>
+  </div>
+</div>
+
+<!-- Notification Toast -->
+<div id="auth-toast">
+  <i class="fa-solid fa-circle-check"></i>
+  <span id="auth-toast-msg">Login Successful! Welcome back.</span>
+</div>
+
+<!-- ============================================================ -->
+<!-- =============  SOCIAL PROOF LIVE ENROLLMENT POPUP  ========= -->
+<!-- ============================================================ -->
+<div id="social-proof-popup">
+  <div class="sp-header">
+    <span style="font-size:10px; text-transform:uppercase; letter-spacing:1px; color:#888; font-weight:700;">Verified Enrollment</span>
+    <button class="sp-close" id="sp-close-btn">&times;</button>
+  </div>
+  <div class="sp-body">
+    <div class="sp-avatar" id="sp-avatar">P</div>
+    <div class="sp-text">
+      <div class="sp-user" id="sp-user-text">Prakash Kumar enrolled for</div>
+      <div class="sp-plan" id="sp-plan-text">TIS Super Trader VIP</div>
+      <div class="sp-time" id="sp-time-text">About 16 minutes ago</div>
+    </div>
+  </div>
+  <div class="sp-progress-bar">
+    <div class="sp-progress-fill" id="sp-progress-fill"></div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- =============  FLOATING WHATSAPP CHAT BUTTON  ============== -->
+<!-- ============================================================ -->
+<div id="whatsapp-wrapper">
+  <div class="wa-chat-pill" id="wa-pill">
+    Chat With Us
+    <span class="wa-close-small" id="wa-pill-close">&times;</span>
+  </div>
+  <a href="https://wa.me/918905939199?text=Hello%2C%20I%20visited%20The%20Investing%20School%20website.%20I%20want%20to%20know%20more%20about%20the%20courses." target="_blank" class="wa-btn" id="wa-button">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p>© 2026 The Investing School · SEBI Registered – INH000013925 · Educational Stock Market Platform</p>
+  </div>
+</footer>
+
+<!-- JAVASCRIPT -->
+<script>
+  // === Hamburger menu ===
+  const ham = document.getElementById('hamburger-btn');
+  const mobNav = document.getElementById('mob-nav');
+  ham.addEventListener('click', () => mobNav.classList.toggle('open'));
+  document.querySelectorAll('.mob-nav a').forEach(a => a.addEventListener('click', () => mobNav.classList.remove('open')));
+
+  // === Sticky header shadow ===
+  window.addEventListener('scroll', () => {
+    document.getElementById('main-header').style.boxShadow = window.scrollY > 20 ? '0 4px 40px rgba(0,0,0,0.5)' : 'none';
+  });
+
+  // === Word cycle ===
+  const words = ['Trader', 'Investor', 'Analyst', 'Winner'];
+  let wi = 0;
+  const cw = document.getElementById('cycle-word');
+  if(cw) {
+    cw.style.transition = 'all 0.4s ease';
+    setInterval(() => {
+      cw.style.opacity = '0'; cw.style.transform = 'translateY(-18px)';
+      setTimeout(() => {
+        wi = (wi + 1) % words.length; cw.textContent = words[wi];
+        cw.style.transition = 'none'; cw.style.opacity = '0'; cw.style.transform = 'translateY(18px)';
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          cw.style.transition = 'all 0.4s ease';
+          cw.style.opacity = '1'; cw.style.transform = 'translateY(0)';
+        }));
+      }, 350);
+    }, 2500);
+  }
+
+  // === Scroll reveal ===
+  const ro = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+  // === Counter animation ===
+  function countUp(el, target) {
+    let v = 0; const step = target / 80;
+    const t = setInterval(() => {
+      v += step; if (v >= target) { v = target; clearInterval(t); }
+      const n = Math.floor(v);
+      if (target >= 10000)   el.textContent = Math.floor(n/1000) + 'K+';
+      else if (target === 98) el.textContent = n + '%';
+      else                    el.textContent = n + '+';
+    }, 20);
+  }
+  let counted = false;
+  const sb = document.getElementById('stats-banner');
+  if(sb) {
+    new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting && !counted) {
+        counted = true;
+        document.querySelectorAll('.sc-n[data-target]').forEach(el => countUp(el, +el.dataset.target));
+      }
+    }, { threshold: 0.3 }).observe(sb);
+  }
+
+  // === Smooth scroll & Active Nav Highlight ===
+  document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  }));
+
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sTop = section.offsetTop - 120;
+      if (window.scrollY >= sTop) current = section.getAttribute('id');
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+    });
+  });
+
+  // === INTERACTIVE WORKABLE LOGIN & SIGNUP MODAL ===
+  const authModal = document.getElementById('auth-modal');
+  const authModalClose = document.getElementById('auth-modal-close-btn');
+  const tabBtnLogin = document.getElementById('tab-btn-login');
+  const tabBtnSignup = document.getElementById('tab-btn-signup');
+  const formLogin = document.getElementById('form-login');
+  const formSignup = document.getElementById('form-signup');
+  const authToast = document.getElementById('auth-toast');
+  const authToastMsg = document.getElementById('auth-toast-msg');
+
+  function openAuthModal(tab = 'login') {
+    authModal.classList.add('active');
+    switchTab(tab);
+  }
+
+  function closeAuthModal() {
+    authModal.classList.remove('active');
+  }
+
+  function switchTab(tab) {
+    if (tab === 'login') {
+      tabBtnLogin.classList.add('active');
+      tabBtnSignup.classList.remove('active');
+      formLogin.classList.add('active');
+      formSignup.classList.remove('active');
+    } else {
+      tabBtnSignup.classList.add('active');
+      tabBtnLogin.classList.remove('active');
+      formSignup.classList.add('active');
+      formLogin.classList.remove('active');
+    }
+  }
+
+  function showToast(msg) {
+    authToastMsg.textContent = msg;
+    authToast.classList.add('active');
+    setTimeout(() => authToast.classList.remove('active'), 3500);
+  }
+
+  // Bind to all Login & Sign Up buttons on the page
+  document.querySelectorAll('.open-auth-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const tab = btn.getAttribute('data-tab') || 'login';
+      openAuthModal(tab);
+    });
+  });
+
+  authModalClose.addEventListener('click', closeAuthModal);
+  authModal.addEventListener('click', (e) => {
+    if (e.target === authModal) closeAuthModal();
+  });
+
+  tabBtnLogin.addEventListener('click', () => switchTab('login'));
+  tabBtnSignup.addEventListener('click', () => switchTab('signup'));
+
+  // Form Submit Handlers
+  formLogin.addEventListener('submit', (e) => {
+    e.preventDefault();
+    closeAuthModal();
+    showToast("🎉 Login Successful! Redirecting to student dashboard...");
+  });
+
+  formSignup.addEventListener('submit', (e) => {
+    e.preventDefault();
+    closeAuthModal();
+    showToast("✨ Registration Successful! Welcome to The Investing School.");
+  });
+
+  // === Live Social Proof Popup Data & Cycling ===
+  const signups = [
+    { name: "Prakash Kumar", plan: "TIS Super Trader VIP", time: "About 16 minutes ago" },
+    { name: "Amit Sharma", plan: "Technical Analysis Masterclass", time: "About 4 minutes ago" },
+    { name: "Neha Verma", plan: "TIS Super Trader VIP", time: "About 2 minutes ago" },
+    { name: "Rahul Deshmukh", plan: "Institutional Mentorship", time: "About 12 minutes ago" },
+    { name: "Rohan Gupta", plan: "Options Trading Masterclass", time: "Just now" }
+  ];
+  let signupIdx = 0;
+  const popup = document.getElementById('social-proof-popup');
+  const avatar = document.getElementById('sp-avatar');
+  const userText = document.getElementById('sp-user-text');
+  const planText = document.getElementById('sp-plan-text');
+  const timeText = document.getElementById('sp-time-text');
+  const progressFill = document.getElementById('sp-progress-fill');
+  const closeBtn = document.getElementById('sp-close-btn');
+
+  function triggerPopupCycle() {
+    progressFill.style.transition = 'none';
+    progressFill.style.width = '0%';
+    
+    const curr = signups[signupIdx];
+    avatar.textContent = curr.name.charAt(0);
+    userText.textContent = curr.name + " enrolled for";
+    planText.textContent = curr.plan;
+    timeText.textContent = curr.time;
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        progressFill.style.transition = 'width 6s linear';
+        progressFill.style.width = '100%';
+      });
+    });
+
+    signupIdx = (signupIdx + 1) % signups.length;
+  }
+
+  triggerPopupCycle();
+  setInterval(triggerPopupCycle, 7000);
+
+  if(closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      popup.style.display = 'none';
+    });
+  }
+
+  // === WhatsApp pill close ===
+  const waPillClose = document.getElementById('wa-pill-close');
+  if(waPillClose) {
+    waPillClose.addEventListener('click', () => {
+      document.getElementById('wa-pill').style.display = 'none';
+    });
+  }
+</script>
+
+</body>
+</html>
